@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<title>数据统计 - 店主后台</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/echarts.min.js"></script>
+<style>
+        body { background-color: #f8f8f8; font-family: 'PingFang SC', sans-serif; }
+        .app-container { width: 375px; height: 812px; background: #f8f8f8; margin: 0 auto; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .nav-btn { background: #fff; color: #666; border: 1px solid #eee; padding: 4px 16px; border-radius: 99px; font-size: 12px; }
+        .nav-btn.active { background: #FF8FB1; color: #fff; border-color: #FF8FB1; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+<!-- 导航 -->
+<div class="h-12 bg-white flex items-center px-4 shrink-0 shadow-sm justify-between">
+<h1 class="font-bold text-gray-800 text-lg">数据统计</h1>
+<button class="text-[#FF8FB1] text-xs font-bold flex items-center gap-1" onclick="showExport()">
+<iconify-icon icon="mdi:file-export-outline"></iconify-icon>
+<span>导出报表</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4 pb-20">
+<!-- 时间区间 -->
+<div class="flex gap-2">
+<button class="nav-btn active">本周</button>
+<button class="nav-btn">本月</button>
+<button class="nav-btn">季度</button>
+</div>
+<!-- 数据概览 -->
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-white p-4 rounded-2xl shadow-sm border-t-4 border-[#FF8FB1]">
+<div class="text-[10px] text-gray-400">总销售额 (元)</div>
+<div class="text-xl font-bold text-gray-800 mt-1">28,450.00</div>
+<div class="text-[10px] text-green-500 mt-1 flex items-center gap-0.5">
+<iconify-icon icon="mdi:arrow-up-bold"></iconify-icon> 12.5% 较上周
+                    </div>
+</div>
+<div class="bg-white p-4 rounded-2xl shadow-sm border-t-4 border-blue-400">
+<div class="text-[10px] text-gray-400">总订单数 (单)</div>
+<div class="text-xl font-bold text-gray-800 mt-1">142</div>
+<div class="text-[10px] text-green-500 mt-1 flex items-center gap-0.5">
+<iconify-icon icon="mdi:arrow-up-bold"></iconify-icon> 8.2% 较上周
+                    </div>
+</div>
+</div>
+<!-- 柱状图 -->
+<div class="bg-white p-4 rounded-2xl shadow-sm">
+<h4 class="text-sm font-bold text-gray-800 mb-4">近7天销售额趋势</h4>
+<div class="w-full h-48" id="barChart"></div>
+</div>
+<!-- 饼图 -->
+<div class="bg-white p-4 rounded-2xl shadow-sm">
+<h4 class="text-sm font-bold text-gray-800 mb-4">品类销售占比</h4>
+<div class="w-full h-48" id="pieChart"></div>
+</div>
+</div>
+<!-- 底部导航 -->
+<div class="flex-none h-16 bg-white border-t flex items-center justify-around px-4 pb-2">
+<a class="flex flex-col items-center text-gray-400" href="shop_owner_orders.html">
+<iconify-icon class="text-2xl" icon="mdi:view-dashboard-outline"></iconify-icon>
+<span class="text-[10px] mt-0.5">订单总览</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="shop_owner_products.html">
+<iconify-icon class="text-2xl" icon="mdi:flower-tulip-outline"></iconify-icon>
+<span class="text-[10px] mt-0.5">商品管理</span>
+</a>
+<div class="flex flex-col items-center text-[#FF8FB1]">
+<iconify-icon class="text-2xl" icon="mdi:chart-bar"></iconify-icon>
+<span class="text-[10px] mt-0.5">数据统计</span>
+</div>
+</div>
+<!-- 导出弹窗 -->
+<div class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-6" id="exportModal">
+<div class="bg-white w-full rounded-[24px] p-6 animate-bounce-in">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-gray-800">导出数据报表</h3>
+<button onclick="hideExport()"><iconify-icon class="text-gray-400 text-xl" icon="mdi:close"></iconify-icon></button>
+</div>
+<div class="space-y-4">
+<div>
+<div class="text-xs text-gray-400 mb-2">数据范围</div>
+<div class="flex gap-2">
+<div class="flex-1 py-2 rounded-lg bg-pink-50 border border-[#FF8FB1] text-[#FF8FB1] text-xs text-center font-bold">本周</div>
+<div class="flex-1 py-2 rounded-lg bg-gray-50 border border-gray-100 text-gray-500 text-xs text-center">本月</div>
+<div class="flex-1 py-2 rounded-lg bg-gray-50 border border-gray-100 text-gray-500 text-xs text-center">自定义</div>
+</div>
+</div>
+<div>
+<div class="text-xs text-gray-400 mb-2">文件格式</div>
+<div class="flex gap-4">
+<label class="flex items-center gap-2 text-sm text-gray-700">
+<input checked="" class="accent-[#FF8FB1]" name="format" type="radio"/> Excel (.xlsx)
+                            </label>
+<label class="flex items-center gap-2 text-sm text-gray-700">
+<input class="accent-[#FF8FB1]" name="format" type="radio"/> PDF
+                            </label>
+</div>
+</div>
+<button class="w-full h-12 bg-[#FF8FB1] text-white rounded-xl font-bold mt-4" onclick="confirmExport()">确认导出</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+        function showExport() { document.getElementById('exportModal').classList.remove('hidden'); }
+        function hideExport() { document.getElementById('exportModal').classList.add('hidden'); }
+        function confirmExport() { 
+            alert('报表已生成，正在发送至您的邮箱');
+            hideExport();
+        }
+
+        // 初始化图表
+        window.onload = function() {
+            const barChart = echarts.init(document.getElementById('barChart'));
+            barChart.setOption({
+                grid: { top: 10, bottom: 20, left: 40, right: 10 },
+                xAxis: { type: 'category', data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], axisLine: { show: false }, axisTick: { show: false } },
+                yAxis: { type: 'value', splitLine: { lineStyle: { type: 'dashed' } } },
+                series: [{ data: [1200, 1500, 1800, 1400, 2200, 3100, 2800], type: 'bar', itemStyle: { color: '#FF8FB1', borderRadius: [4, 4, 0, 0] } }]
+            });
+
+            const pieChart = echarts.init(document.getElementById('pieChart'));
+            pieChart.setOption({
+                legend: { bottom: 0, left: 'center', itemWidth: 10, textStyle: { fontSize: 10 } },
+                series: [{
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: { show: false },
+                    data: [
+                        { value: 1048, name: '花束', itemStyle: { color: '#FF8FB1' } },
+                        { value: 735, name: '礼盒', itemStyle: { color: '#60A5FA' } },
+                        { value: 580, name: '单支配饰', itemStyle: { color: '#34D399' } }
+                    ]
+                }]
+            });
+        };
+    </script>
+</body>
+</html>

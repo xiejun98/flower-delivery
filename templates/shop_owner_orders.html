@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<title>订单总览 - 店主后台</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+        body { background-color: #f8f8f8; font-family: 'PingFang SC', sans-serif; }
+        .app-container { width: 375px; height: 812px; background: #f8f8f8; margin: 0 auto; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .tab-active { color: #FF8FB1; border-bottom: 2px solid #FF8FB1; font-weight: bold; }
+        .bottom-nav-active { color: #FF8FB1; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+<!-- 顶部 -->
+<div class="bg-white px-4 py-3 shadow-sm shrink-0">
+<div class="flex justify-between items-center">
+<h1 class="font-bold text-gray-800 text-lg">花间小筑 · 管理后台</h1>
+<div class="flex gap-4">
+<iconify-icon class="text-2xl text-gray-500" icon="mdi:bell-outline"></iconify-icon>
+<iconify-icon class="text-2xl text-gray-500" icon="mdi:cog-outline"></iconify-icon>
+</div>
+</div>
+<div class="mt-4 flex gap-3">
+<div class="flex-1 bg-gray-100 rounded-lg px-3 py-1.5 flex justify-between items-center text-xs">
+<span class="text-gray-500">今天 06-30</span>
+<iconify-icon class="text-[#FF8FB1]" icon="mdi:calendar"></iconify-icon>
+</div>
+<div class="flex-1 bg-gray-100 rounded-lg px-3 py-1.5 flex justify-between items-center text-xs">
+<span class="text-gray-500">七夕特供</span>
+<iconify-icon class="text-gray-400" icon="mdi:chevron-down"></iconify-icon>
+</div>
+</div>
+</div>
+<!-- Tab -->
+<div class="bg-white flex h-10 shrink-0 border-t">
+<div class="flex-1 flex items-center justify-center text-sm tab-active relative">
+                待接单 <span class="absolute top-2 right-4 w-4 h-4 bg-red-500 text-white text-[8px] rounded-full flex items-center justify-center">2</span>
+</div>
+<div class="flex-1 flex items-center justify-center text-sm text-gray-500">待配送</div>
+<div class="flex-1 flex items-center justify-center text-sm text-gray-500">已完成</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- 订单1 -->
+<div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-red-400">
+<div class="flex justify-between items-start mb-3">
+<div class="flex gap-2 items-center">
+<input class="accent-[#FF8FB1] w-4 h-4" type="checkbox"/>
+<span class="text-xs text-gray-400 font-mono">2026063005</span>
+</div>
+<span class="text-[10px] text-gray-400">2分钟前下单</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<div class="font-bold text-gray-800">红玫瑰经典花束 × 1</div>
+<div class="text-xs text-gray-500 mt-1">地址：创意园1号楼 (1.2km)</div>
+</div>
+<div class="text-right">
+<div class="text-[#FF4444] font-bold">¥230.00</div>
+<button class="mt-2 bg-[#FF8FB1] text-white text-[10px] px-4 py-1.5 rounded-full shadow-md shadow-pink-100 active:scale-95" onclick="location.href='shop_owner_orders.html'">接单</button>
+</div>
+</div>
+</div>
+<!-- 订单2 -->
+<div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-red-400">
+<div class="flex justify-between items-start mb-3">
+<div class="flex gap-2 items-center">
+<input class="accent-[#FF8FB1] w-4 h-4" type="checkbox"/>
+<span class="text-xs text-gray-400 font-mono">2026063006</span>
+</div>
+<span class="text-[10px] text-gray-400">8分钟前下单</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<div class="font-bold text-gray-800">粉色康乃馨礼盒 × 1</div>
+<div class="text-xs text-gray-500 mt-1">地址：虹桥路1号 (4.5km)</div>
+</div>
+<div class="text-right">
+<div class="text-[#FF4444] font-bold">¥168.00</div>
+<button class="mt-2 bg-[#FF8FB1] text-white text-[10px] px-4 py-1.5 rounded-full shadow-md shadow-pink-100 active:scale-95">接单</button>
+</div>
+</div>
+</div>
+<!-- 订单卡片 - 已接单待配送示例 -->
+<div class="bg-white p-4 rounded-2xl shadow-sm border-l-4 border-blue-400">
+<div class="flex justify-between items-start mb-3">
+<div class="flex gap-2 items-center">
+<input checked="" class="accent-[#FF8FB1] w-4 h-4" type="checkbox"/>
+<span class="text-xs text-gray-400 font-mono">2026063001</span>
+</div>
+<span class="text-[10px] text-blue-400 font-bold bg-blue-50 px-2 rounded-full">待配送</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<div class="font-bold text-gray-800">永生花心动礼盒 × 1</div>
+<div class="text-xs text-gray-500 mt-1">时段：09:00-12:00</div>
+</div>
+<div class="text-right">
+<div class="text-gray-800 font-bold">¥399.00</div>
+<button class="mt-2 border border-blue-400 text-blue-400 text-[10px] px-3 py-1.5 rounded-full active:bg-blue-50" onclick="showRiderModal()">分配骑手</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 底部批量操作 -->
+<div class="h-12 bg-white border-t px-4 flex items-center justify-between shadow-2xl">
+<div class="flex items-center gap-2">
+<input class="accent-[#FF8FB1] w-4 h-4" type="checkbox"/>
+<span class="text-sm text-gray-500">全选</span>
+</div>
+<div class="flex gap-3">
+<button class="bg-red-50 text-red-500 px-4 py-1.5 rounded-lg text-xs font-bold">批量取消</button>
+<button class="bg-[#FF8FB1] text-white px-6 py-1.5 rounded-lg text-xs font-bold" onclick="showRiderModal()">分配骑手</button>
+</div>
+</div>
+<!-- 底部导航 -->
+<div class="flex-none h-16 bg-white border-t flex items-center justify-around px-4 pb-2">
+<div class="flex flex-col items-center bottom-nav-active">
+<iconify-icon class="text-2xl" icon="mdi:view-dashboard"></iconify-icon>
+<span class="text-[10px] mt-0.5">订单总览</span>
+</div>
+<a class="flex flex-col items-center text-gray-400" href="shop_owner_products.html">
+<iconify-icon class="text-2xl" icon="mdi:flower-tulip"></iconify-icon>
+<span class="text-[10px] mt-0.5">商品管理</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="shop_owner_stats.html">
+<iconify-icon class="text-2xl" icon="mdi:chart-bar"></iconify-icon>
+<span class="text-[10px] mt-0.5">数据统计</span>
+</a>
+</div>
+<!-- 分配骑手弹窗 (内联模拟) -->
+<div class="hidden fixed inset-0 z-50 bg-black/50 flex flex-col justify-end" id="riderModal">
+<div class="bg-white rounded-t-[32px] p-6 animate-slide-up">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-gray-800">选择配送骑手</h3>
+<button onclick="hideRiderModal()"><iconify-icon class="text-2xl text-gray-400" icon="mdi:close"></iconify-icon></button>
+</div>
+<div class="space-y-4 max-h-[400px] overflow-y-auto">
+<!-- 骑手1 -->
+<div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden">
+<img alt="Rider 1" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-06-30/36667bb5724146f485c1d2849d5905ad.jpg"/>
+</div>
+<div>
+<div class="font-bold text-gray-800">张师傅 <span class="text-[10px] font-normal text-green-500 bg-green-50 px-1 ml-1 rounded">空闲</span></div>
+<div class="text-[10px] text-gray-400">当前 0 单 | 评分 4.9</div>
+</div>
+</div>
+<button class="bg-[#FF8FB1] text-white text-[10px] px-4 py-1.5 rounded-full" onclick="confirmDispatch()">分配</button>
+</div>
+<!-- 骑手2 -->
+<div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden">
+<img alt="Rider 2" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-06-30/d0db08fc215d42cea6be5d95163080f4.jpg"/>
+</div>
+<div>
+<div class="font-bold text-gray-800">李师傅 <span class="text-[10px] font-normal text-orange-500 bg-orange-50 px-1 ml-1 rounded">繁忙</span></div>
+<div class="text-[10px] text-gray-400">当前 3 单 | 评分 4.7</div>
+</div>
+</div>
+<button class="bg-[#FF8FB1] text-white text-[10px] px-4 py-1.5 rounded-full" onclick="confirmDispatch()">分配</button>
+</div>
+</div>
+<div class="h-6"></div>
+</div>
+</div>
+</div>
+<script>
+        function showRiderModal() {
+            document.getElementById('riderModal').classList.remove('hidden');
+        }
+        function hideRiderModal() {
+            document.getElementById('riderModal').classList.add('hidden');
+        }
+        function confirmDispatch() {
+            hideRiderModal();
+            alert('分配成功，骑手将收到推送');
+        }
+    </script>
+</body>
+</html>

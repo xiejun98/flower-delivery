@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<title>异常上报 - 鲜花配送</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+        body { background-color: #f8f8f8; font-family: 'PingFang SC', sans-serif; }
+        .app-container { width: 375px; height: 812px; background: white; margin: 0 auto; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .type-card { border: 2px solid transparent; background: #f9f9f9; transition: all 0.3s; }
+        .type-card.active { border-color: #FF8FB1; background: #fff8f9; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+<!-- 导航 -->
+<div class="h-12 bg-white flex items-center px-4 shrink-0 shadow-sm">
+<a href="javascript:history.back()"><iconify-icon class="text-2xl text-gray-400" icon="mdi:close"></iconify-icon></a>
+<h1 class="flex-1 text-center font-bold text-gray-800 mr-6">上报异常</h1>
+</div>
+<div class="flex-1 p-6">
+<h3 class="font-bold text-gray-800 mb-4">异常类型</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="type-card active p-4 rounded-2xl flex flex-col items-center gap-2">
+<iconify-icon class="text-3xl text-[#FF8FB1]" icon="mdi:map-marker-question"></iconify-icon>
+<span class="text-sm font-bold text-gray-700">地址不详</span>
+</div>
+<div class="type-card p-4 rounded-2xl flex flex-col items-center gap-2">
+<iconify-icon class="text-3xl text-gray-400" icon="mdi:phone-off"></iconify-icon>
+<span class="text-sm font-bold text-gray-700">无人接听</span>
+</div>
+<div class="type-card p-4 rounded-2xl flex flex-col items-center gap-2">
+<iconify-icon class="text-3xl text-gray-400" icon="mdi:flower-broken"></iconify-icon>
+<span class="text-sm font-bold text-gray-700">鲜花破损</span>
+</div>
+<div class="type-card p-4 rounded-2xl flex flex-col items-center gap-2">
+<iconify-icon class="text-3xl text-gray-400" icon="mdi:dots-horizontal-circle"></iconify-icon>
+<span class="text-sm font-bold text-gray-700">其他原因</span>
+</div>
+</div>
+<h3 class="font-bold text-gray-800 mt-8 mb-4">情况描述</h3>
+<textarea class="w-full h-32 bg-gray-50 rounded-2xl p-4 text-sm outline-none border border-gray-100 focus:border-pink-200 transition-all" placeholder="请填写具体异常详情，方便客服跟进..."></textarea>
+<div class="mt-6 flex gap-4">
+<div class="w-20 h-20 border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center text-gray-300 active:bg-gray-50">
+<iconify-icon class="text-2xl" icon="mdi:camera"></iconify-icon>
+<span class="text-[10px] mt-1">拍摄照片</span>
+</div>
+</div>
+</div>
+<div class="p-6">
+<button class="w-full h-14 bg-red-400 text-white rounded-2xl font-bold shadow-lg shadow-red-100" onclick="alert('上报成功'); location.href='rider_orders.html'">提交上报</button>
+</div>
+</div>
+</body>
+</html>

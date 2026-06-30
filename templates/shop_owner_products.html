@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<title>商品管理 - 店主后台</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+        body { background-color: #f8f8f8; font-family: 'PingFang SC', sans-serif; }
+        .app-container { width: 375px; height: 812px; background: #f8f8f8; margin: 0 auto; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .tab-active { color: #FF8FB1; border-bottom: 2px solid #FF8FB1; font-weight: bold; }
+        .switch { width: 40px; height: 20px; background-color: #eee; border-radius: 10px; position: relative; transition: background-color 0.3s; cursor: pointer; }
+        .switch-active { background-color: #FF8FB1; }
+        .switch::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: white; border-radius: 50%; transition: left 0.3s; }
+        .switch-active::after { left: 22px; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+<!-- 导航 -->
+<div class="h-12 bg-white flex items-center px-4 shrink-0 shadow-sm justify-between">
+<h1 class="font-bold text-gray-800 text-lg">商品管理</h1>
+<iconify-icon class="text-2xl text-gray-400" icon="mdi:magnify"></iconify-icon>
+</div>
+<!-- Tab -->
+<div class="bg-white flex h-10 shrink-0 border-t">
+<div class="flex-1 flex items-center justify-center text-sm tab-active">全部</div>
+<div class="flex-1 flex items-center justify-center text-sm text-gray-500">花束</div>
+<div class="flex-1 flex items-center justify-center text-sm text-gray-500">礼盒</div>
+<div class="flex-1 flex items-center justify-center text-sm text-gray-500">已下架</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-3">
+<!-- 商品卡片 -->
+<div class="bg-white p-3 rounded-2xl flex gap-3 shadow-sm items-center">
+<div class="w-16 h-16 bg-red-50 rounded-lg overflow-hidden shrink-0">
+<img alt="Classic Red Rose Preview" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-06-30/a8a9914291b94539a5c9adfcf5b27d47.jpg"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-bold text-gray-800 text-sm truncate">红玫瑰经典花束</div>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-[#FF4444] text-sm font-bold">¥198</span>
+<span class="text-[10px] text-gray-400">库存: 88</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<div class="switch switch-active"></div>
+<div class="flex gap-2">
+<iconify-icon class="text-gray-400 text-lg" icon="mdi:pencil-outline"></iconify-icon>
+<iconify-icon class="text-gray-400 text-lg" icon="mdi:trash-can-outline"></iconify-icon>
+</div>
+</div>
+</div>
+<!-- 商品卡片 2 -->
+<div class="bg-white p-3 rounded-2xl flex gap-3 shadow-sm items-center">
+<div class="w-16 h-16 bg-pink-50 rounded-lg overflow-hidden shrink-0">
+<img alt="Pink Carnation Preview" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-06-30/ddafd2b673324459ad302a8d4955bddc.jpg"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-bold text-gray-800 text-sm truncate">粉色康乃馨礼盒</div>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-[#FF4444] text-sm font-bold">¥168</span>
+<span class="text-[10px] text-gray-400">库存: 120</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<div class="switch switch-active"></div>
+<div class="flex gap-2">
+<iconify-icon class="text-gray-400 text-lg" icon="mdi:pencil-outline"></iconify-icon>
+<iconify-icon class="text-gray-400 text-lg" icon="mdi:trash-can-outline"></iconify-icon>
+</div>
+</div>
+</div>
+<!-- 商品卡片 3 -->
+<div class="bg-white p-3 rounded-2xl flex gap-3 shadow-sm items-center opacity-60">
+<div class="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden shrink-0">
+<img alt="Out of stock product" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-06-30/d7008b0a0906450796b989d37ebed9f5.jpg"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-bold text-gray-800 text-sm truncate">单支满天星配饰</div>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-[#FF4444] text-sm font-bold">¥19.9</span>
+<span class="text-[10px] text-red-400 font-bold">已售罄</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<div class="switch"></div>
+<div class="flex gap-2">
+<iconify-icon class="text-gray-400 text-lg" icon="mdi:pencil-outline"></iconify-icon>
+<iconify-icon class="text-gray-400 text-lg" icon="mdi:trash-can-outline"></iconify-icon>
+</div>
+</div>
+</div>
+</div>
+<!-- 底部按钮 -->
+<div class="p-4 bg-white border-t">
+<button class="w-full h-12 bg-[#FF8FB1] text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-pink-100 active:scale-[0.98] transition-transform">
+<iconify-icon class="text-2xl" icon="mdi:plus-circle"></iconify-icon>
+<span>新增商品</span>
+</button>
+</div>
+<!-- 底部导航 -->
+<div class="flex-none h-16 bg-white border-t flex items-center justify-around px-4 pb-2">
+<a class="flex flex-col items-center text-gray-400" href="shop_owner_orders.html">
+<iconify-icon class="text-2xl" icon="mdi:view-dashboard-outline"></iconify-icon>
+<span class="text-[10px] mt-0.5">订单总览</span>
+</a>
+<div class="flex flex-col items-center text-[#FF8FB1]">
+<iconify-icon class="text-2xl" icon="mdi:flower-tulip"></iconify-icon>
+<span class="text-[10px] mt-0.5">商品管理</span>
+</div>
+<a class="flex flex-col items-center text-gray-400" href="shop_owner_stats.html">
+<iconify-icon class="text-2xl" icon="mdi:chart-bar"></iconify-icon>
+<span class="text-[10px] mt-0.5">数据统计</span>
+</a>
+</div>
+</div>
+</body>
+</html>

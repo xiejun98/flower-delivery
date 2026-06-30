@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<title>身份选择 - 花间小筑</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+        body { background-color: #f8f8f8; font-family: 'PingFang SC', sans-serif; }
+        .app-container { width: 375px; height: 812px; background: white; margin: 0 auto; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    </style>
+</head>
+<body>
+<div class="app-container bg-gray-900/50 flex items-center justify-center p-6">
+<div class="bg-white w-full rounded-[24px] overflow-hidden animate-bounce-in">
+<div class="p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-bold text-gray-800">选择进入角色</h3>
+<a class="text-gray-400 text-2xl" href="login.html"><iconify-icon icon="mdi:close"></iconify-icon></a>
+</div>
+<div class="space-y-4">
+<a class="block p-5 bg-pink-50 rounded-2xl border border-pink-100 active:bg-pink-100 transition-colors" href="consumer_home.html">
+<div class="flex items-center gap-4">
+<span class="text-3xl">🌸</span>
+<div>
+<div class="font-bold text-gray-800 text-lg">我是消费者</div>
+<div class="text-xs text-pink-400">挑选心仪花束，同城极速送达</div>
+</div>
+</div>
+</a>
+<a class="block p-5 bg-blue-50 rounded-2xl border border-blue-100 active:bg-blue-100 transition-colors" href="shop_owner_orders.html">
+<div class="flex items-center gap-4">
+<span class="text-3xl">🏪</span>
+<div>
+<div class="font-bold text-gray-800 text-lg">我是花店店主</div>
+<div class="text-xs text-blue-400">管理店铺订单，维护商品库存</div>
+</div>
+</div>
+</a>
+<a class="block p-5 bg-green-50 rounded-2xl border border-green-100 active:bg-green-100 transition-colors" href="rider_orders.html">
+<div class="flex items-center gap-4">
+<span class="text-3xl">🚴</span>
+<div>
+<div class="font-bold text-gray-800 text-lg">我是骑手</div>
+<div class="text-xs text-green-400">接收配送任务，查看收益详情</div>
+</div>
+</div>
+</a>
+</div>
+<div class="mt-8 text-center text-sm text-gray-400">
+                    角色决定了您看到的功能界面
+                </div>
+</div>
+</div>
+</div>
+</body>
+</html>

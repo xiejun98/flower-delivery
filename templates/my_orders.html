@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<title>我的订单 - 花间小筑</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+        body { background-color: #f8f8f8; font-family: 'PingFang SC', sans-serif; }
+        .app-container { width: 375px; height: 812px; background: #f8f8f8; margin: 0 auto; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .tab-active { color: #FF8FB1; border-bottom: 2px solid #FF8FB1; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+<!-- 导航 -->
+<div class="h-12 bg-white flex items-center px-4 shrink-0">
+<a href="consumer_home.html"><iconify-icon class="text-2xl text-gray-800" icon="mdi:chevron-left"></iconify-icon></a>
+<h1 class="flex-1 text-center font-bold text-gray-800 mr-6">我的订单</h1>
+</div>
+<!-- Tab -->
+<div class="bg-white flex h-10 shrink-0">
+<div class="flex-1 flex items-center justify-center text-sm tab-active">全部</div>
+<div class="flex-1 flex items-center justify-center text-sm text-gray-500">待接单</div>
+<div class="flex-1 flex items-center justify-center text-sm text-gray-500">配送中</div>
+<div class="flex-1 flex items-center justify-center text-sm text-gray-500">已完成</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- 订单卡片 - 配送中 -->
+<div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-50">
+<div class="flex justify-between items-center mb-3">
+<span class="text-xs text-gray-400 font-mono">NO.2026063001</span>
+<span class="text-[#FF8FB1] text-xs font-bold bg-pink-50 px-2 py-0.5 rounded-full">配送中</span>
+</div>
+<div class="flex gap-3">
+<div class="w-16 h-16 bg-red-50 rounded-lg overflow-hidden shrink-0">
+<img alt="Small Rose Bouquet" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-06-30/65c63d2ffbea4fcea67980256aee871f.jpg"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="text-sm font-bold text-gray-800">红玫瑰经典花束</h3>
+<span class="text-sm font-bold text-gray-800">¥230.00</span>
+</div>
+<div class="text-[10px] text-gray-400 mt-1">下单时间: 2026-06-30 07:15</div>
+</div>
+</div>
+<div class="h-[1px] bg-gray-50 my-3"></div>
+<div class="flex justify-end gap-3">
+<a class="px-4 py-1.5 border border-[#FF8FB1] text-[#FF8FB1] text-xs rounded-full" href="delivery_tracking.html">查看配送</a>
+</div>
+</div>
+<!-- 订单卡片 - 待接单 -->
+<div class="bg-white rounded-2xl p-4 shadow-sm">
+<div class="flex justify-between items-center mb-3">
+<span class="text-xs text-gray-400 font-mono">NO.2026063005</span>
+<span class="text-red-400 text-xs font-bold bg-red-50 px-2 py-0.5 rounded-full">待接单</span>
+</div>
+<div class="flex gap-3">
+<div class="w-16 h-16 bg-pink-50 rounded-lg overflow-hidden shrink-0">
+<img alt="Pink Carnation Bouquet" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-06-30/5f0275336b4648ad94ca9bfd0af01b71.jpg"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="text-sm font-bold text-gray-800">粉色康乃馨礼盒</h3>
+<span class="text-sm font-bold text-gray-800">¥168.00</span>
+</div>
+<div class="text-[10px] text-gray-400 mt-1">下单���间: 2026-06-30 07:22</div>
+</div>
+</div>
+<div class="h-[1px] bg-gray-50 my-3"></div>
+<div class="flex justify-end gap-3">
+<button class="px-4 py-1.5 border border-red-400 text-red-400 text-xs rounded-full">催单</button>
+<button class="px-4 py-1.5 bg-gray-100 text-gray-500 text-xs rounded-full">取消订单</button>
+</div>
+</div>
+<!-- 订单卡片 - 已完成 -->
+<div class="bg-white rounded-2xl p-4 shadow-sm opacity-80">
+<div class="flex justify-between items-center mb-3">
+<span class="text-xs text-gray-400 font-mono">NO.2026062812</span>
+<span class="text-gray-400 text-xs font-bold bg-gray-50 px-2 py-0.5 rounded-full">已送达</span>
+</div>
+<div class="flex gap-3">
+<div class="w-16 h-16 bg-blue-50 rounded-lg overflow-hidden shrink-0">
+<img alt="Mixed Flower Preview" class="w-full h-full object-cover" src="https://modao.cc/agent-py/media/generated_images/2026-06-30/d61d13e79a3f436fa2f8885717b87257.jpg"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="text-sm font-bold text-gray-800">晨曦混搭花束</h3>
+<span class="text-sm font-bold text-gray-800">¥228.00</span>
+</div>
+<div class="text-[10px] text-gray-400 mt-1">下单时间: 2026-06-28 10:30</div>
+</div>
+</div>
+<div class="h-[1px] bg-gray-50 my-3"></div>
+<div class="flex justify-end gap-3">
+<button class="px-4 py-1.5 border border-[#FF8FB1] text-[#FF8FB1] text-xs rounded-full">再次购买</button>
+<button class="px-4 py-1.5 bg-gray-100 text-gray-500 text-xs rounded-full">查看详情</button>
+</div>
+</div>
+</div>
+<!-- 底部导航 -->
+<div class="flex-none h-16 bg-white border-t flex items-center justify-around px-4 pb-2">
+<a class="flex flex-col items-center text-gray-400" href="consumer_home.html">
+<iconify-icon class="text-2xl" icon="mdi:home-outline"></iconify-icon>
+<span class="text-[10px] mt-0.5">首页</span>
+</a>
+<div class="flex flex-col items-center text-[#FF8FB1]">
+<iconify-icon class="text-2xl" icon="mdi:clipboard-text"></iconify-icon>
+<span class="text-[10px] mt-0.5">订单</span>
+</div>
+<a class="flex flex-col items-center text-gray-400" href="profile.html">
+<iconify-icon class="text-2xl" icon="mdi:account-outline"></iconify-icon>
+<span class="text-[10px] mt-0.5">我的</span>
+</a>
+</div>
+</div>
+</body>
+</html>
